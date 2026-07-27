@@ -7,5 +7,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get("/", [ChirpController::class, 'index']);
-Route::post("/chirps", [ChirpController::class, 'store']);
+Route::get('/', [ChirpController::class, 'index']);
+
+Route::resource('chirps', ChirpController::class)
+    ->only(['store', 'edit', 'update', 'destroy']);
